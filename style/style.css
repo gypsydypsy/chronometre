@@ -1,0 +1,284 @@
+/* Variables & themes */
+
+:root {
+    --blue : #1E213F;
+    --darkBlue : #161932;
+    --white : #FFF;
+    --lightGrey : #EFF1FA;
+}
+
+.theme-pink {
+    --primary : #F87070;
+}
+
+.theme-cyan {
+    --primary : #70F3F8;
+}
+
+.theme-purple {
+    --primary : #D881F8;
+}
+
+.font-kumbh {
+    font-family : 'Kumbh Sans', sans-serif;
+}
+
+.font-roboto {
+    font-family : 'Roboto Slab', serif;
+}
+
+.font-space {
+    font-family : 'Space Mono', monospace;
+}
+
+/* All */ 
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color : var(--blue);
+    font-size: 62.5%;
+}
+
+.container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin : 20px 0 30px 0;
+}
+
+.controls {
+    background-color: var(--darkBlue);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.controls button {
+    font-size: 1rem;
+    border: none;
+    background : transparent;
+    color: var(--lightGrey);
+    width: 100px;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+
+.controls button:hover{
+    cursor: pointer;
+}
+
+.controls button:disabled {
+    background-color: var(--primary);
+    color: var(--darkBlue);
+    font-weight: 600;
+}
+
+#chrono {
+    position: relative;
+    margin: 40px 0;
+    padding: 20px;
+    border-radius: 300px;
+    background: linear-gradient(to bottom right, var(--darkBlue), var(--blue));
+    box-shadow: -25px -25px 40px rgba(255,255,255,0.05), 10px 10px 50px rgba(0,0,0,0.6);
+
+}
+
+canvas {
+    background-color: var(--darkBlue);
+    border-radius: 200px;
+}
+
+#chrono p {
+    position: absolute; 
+    top: 10%;
+    font-size: 5rem;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+#settingsBtn {
+    background: transparent;
+    border: none;
+}
+
+#settingsBtn:hover {
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display:none;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4)
+}
+
+.modal-content {
+    margin: 5vh auto;
+    background-color: #FFF;
+    border: solid 1px rgba(0,0,0,0.4);
+    width: 80%;
+    height: 80vh;
+    border-radius: 10px;
+    max-width: 700px;
+    overflow-y : scroll;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.modal-content::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-nav {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.modal-nav h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.modal-nav span {
+    margin: 0;
+    font-size: 1.8rem;
+    color : rgba(0,0,0,0.5);
+}
+
+.modal-nav span:hover {
+    cursor: pointer;
+}
+
+.form-row {
+    border-top: solid rgba(0,0,0,0.1) 1px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row label {
+    font-size: 0.8rem;
+    letter-spacing : 0.2rem;
+    margin-bottom: 20px;
+}
+
+.form-row input {
+    background-color: var(--lightGrey);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    width: 70px;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+}
+
+.font-settings, .color-settings {
+    display: flex;
+}
+
+.font-settings input, .color-settings input {
+    position: absolute;
+    opacity: 0;
+}
+
+.font-settings label {
+    font-size: 1rem;
+    background-color: var(--lightGrey);
+    line-height: 45px;
+    padding: 0 10px;
+    border-radius: 60px;
+    margin: 0 5px;
+}
+
+.font-settings input:checked + label {
+    color: var(--white);
+    background-color: black;
+}
+
+.color-settings label {
+    height: 45px;
+    width: 45px;
+    border-radius: 60px;
+    margin: 0 5px;
+}
+
+.color-settings input:checked + label::before {
+    content: ' ';
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-image: url('../img/checked.png');
+    background-size: contain;
+    background-position: center;
+    margin: 10px;
+    z-index: 4;
+}
+.color-settings label[for='pink'] {
+    background-color : #F87070;
+}
+
+.color-settings label[for='cyan'] {
+    background-color : #70F3F8;
+}
+
+.color-settings label[for='purple'] {
+    background-color : #D881F8;
+}
+
+.form-row select {
+    background-color: var(--lightGrey);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+}
+
+.modal button {
+    background-color: var(--primary);
+    border : none;
+    padding: 15px 30px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 30px;
+    display: block;
+    position: fixed;
+    top: 82vh;
+    left : 50%;
+    transform: translateX(-50%);
+    z-index: 8;
+}
+
+.font-settings label:hover, .color-settings label:hover, .modal button:hover, .form-row input {
+    cursor: pointer;
+}
+
+/* Animations */
+
+.clignote {
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    animation-duration : 0.5s;
+}
+
+@keyframes clignoter {
+    0% {
+        opacity: 1;
+    }    
+    50% {
+        opacity: 0;
+    }
+}

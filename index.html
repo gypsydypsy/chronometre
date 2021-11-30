@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS  -->
+
+  <link rel="stylesheet" href="style/style.css">
+  
+  <title>Stopwatch</title>
+</head>
+<body class='theme-pink font-kumbh'>
+  <div class='container'>
+    <h1>stopwatch</h1>
+    <div class='controls'>
+      <button id="start">start</button>
+      <button id="pause">pause</button>
+      <button id="stop">stop</button>
+    </div>
+  
+    <div id="chrono">
+      <canvas height = 300 width = 300>
+      </canvas>
+      <p id="timeLeft">05:00</p>
+    </div>
+    
+    <button id="settingsBtn">
+      <img src="img/icon-settings.svg" alt="">
+    </button>
+  </div>
+  
+  <!-- Modal content -->
+  <div id="modal-settings" class="modal">
+    <div class="modal-content">
+      <div class='modal-nav'>
+        <h2>Settings</h2>
+        <span class="close" id='closeBtn'>&times;</span>
+      </div>
+      <form action="">
+        <div class='form-row'>
+          <label for="durationInput">TIME (MINUTES)</label>
+          <input type="number" name="durationInput" id="durationInput" max="60" min="1" value='5'>
+        </div>
+        <div class="form-row">
+          <label>FONT</label>
+          <div class="font-settings">
+            <input type="radio" name='fontInput' id='kumbh' value='kumbh' checked>
+            <label class='font-kumbh' for="kumbh">Aa</label>
+            <input type="radio" name='fontInput' id='roboto' value='roboto'>
+            <label class='font-roboto' for="roboto">Aa</label>
+            <input type="radio" name='fontInput' id='space' value='space'>
+            <label class='font-space' for="space">Aa</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>COLOR</label>
+          <div class='color-settings'>
+            <input type="radio" name='colorInput' value='pink' id='pink' checked>
+            <label for='pink'></label>
+            <input type="radio" name='colorInput' value='cyan' id='cyan'>
+            <label for="cyan"></label>
+            <input type="radio" name='colorInput' value='purple' id='purple'>
+            <label for="purple"></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>RINGTONE</label>
+          <div class='ringtone-settings'>
+            <select name="ringtoneInput" id="ringtoneInput">
+              <option value="classic">classic</option>
+              <option value="gameover">game over</option>
+              <option value="panic">panic</option>
+              <option value="qvgm">television</option>
+              <option value="school">school</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit">Apply</button>
+      </form> 
+    </div>
+  </div>
+
+  <script src="script/variables.js"></script>
+  <script src="script/modal.js"></script>
+  <script src="script/settings.js"></script>
+  <script src="script/main.js"></script>
+</body>
+</html>
